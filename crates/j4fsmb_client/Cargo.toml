@@ -1,0 +1,8 @@
+[package]
+name = "j4fsmb-client"
+version = "0.0.1"
+authors = ["squeakbug <squeakbug73@outlook.com>"]
+edition = "2021"
+
+[dependencies]
+tokio.workspace = true
