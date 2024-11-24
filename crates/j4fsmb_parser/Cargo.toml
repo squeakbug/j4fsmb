@@ -1,10 +1,9 @@
 [package]
-name = "j4fsmb-server"
+name = "j4fsmb-parser"
 version = "0.0.1"
 authors = ["squeakbug <squeakbug73@outlook.com>"]
 edition = "2021"
 
 [dependencies]
 tokio.workspace = true
-log = "0.4"
-env_logger = "0.10"
+deku = "0.18"

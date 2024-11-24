@@ -12,9 +12,8 @@ authors = ["squeakbug <squeakbug73@outlook.com>"]
 edition = "2021"
 
 [workspace.dependencies]
-tokio = "1.41.1"
-j4fsmb-client = { path = "crates/j4fsmb_client" }
-j4fsmb-server = { path = "crates/j4fsmb_server" }
+tokio = { version = "1.41.1", features = ["full"] }
+j4fsmb-parser = { path = "crates/j4fsmb_parser" }
 
 [profile.release]
 lto = true
