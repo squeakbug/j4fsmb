@@ -1,8 +1,17 @@
 # j4fsmb
 
+*Hey, what is libjavascriptcoregtk-4.1-dev?*
+
+WebDAV + SMB3 server
+
 Distributed File System (DFS): A file system that logically groups physical shared folders located on different servers by transparently connecting them to one or more hierarchical namespaces. DFS also provides fault-tolerance and load-sharing capabilities.
 
 ## Ссылки
+
+### Rust for multiplatform
+
+https://github.com/DioxusLabs/taffy
+https://github.com/dioxuslabs/dioxus
 
 ### SMB stuff
 
