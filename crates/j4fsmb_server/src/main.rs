@@ -3,12 +3,12 @@ use tokio::{
     net::{TcpListener, TcpStream},
     io::{AsyncReadExt, AsyncWriteExt},
 };
-use log::{info, error};
+use tracing::{info, error};
 use std::error::Error;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    env_logger::init();
+    tracing_subscriber::fmt::init();
 
     let addr = "0.0.0.0:445";
     let listener = TcpListener::bind(addr).await?;

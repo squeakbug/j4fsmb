@@ -2,12 +2,11 @@
 
 use dioxus::prelude::*;
 
-pub use crate::Route;
+pub use crate::components::Route;
 
 #[component]
-pub fn Blog(id: i32) -> Element {
+pub fn Trash() -> Element {
     rsx! {
         Link { to: Route::Home {}, "Go to counter" }
-        "Blog post {id}"
     }
 }

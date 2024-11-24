@@ -1,0 +1,20 @@
+---
+
+services:
+  j4fsmb-service:
+    build: 
+      context: ../
+      dockerfile: ./deployment/j4fsmb_server/Dockerfile
+    image: squeakbug73/j4fsmb-server:0.1
+    restart: unless-stopped
+    container_name: j4fsmb-server
+    ports:
+      - "${SMB_SERVICE__LISTEN_PORT}:8445"
+    networks:
+      - services-network
+
+networks:
+  services-network:
+    driver: bridge
+
+volumes: {}

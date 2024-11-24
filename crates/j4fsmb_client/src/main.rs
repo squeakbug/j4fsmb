@@ -5,19 +5,7 @@ pub mod components;
 use dioxus::prelude::*;
 use dioxus_logger::tracing::{info, Level};
 
-use components::{
-    App,
-    blog::Blog,
-    home::Home,
-};
-
-#[derive(Clone, Routable, Debug, PartialEq)]
-pub enum Route {
-    #[route("/")]
-    Home {},
-    #[route("/blog/:id")]
-    Blog { id: i32 },
-}
+use components::App;
 
 fn main() {
     dioxus_logger::init(Level::INFO).expect("failed to init logger");

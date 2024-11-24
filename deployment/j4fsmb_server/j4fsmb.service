@@ -1,0 +1,14 @@
+[Unit]
+Description=Dummy smb-like server
+After=network.target
+Before=nextcloud-web.service
+
+[Service]
+ExecStart=/usr/local/j4fsmb/bin/server
+ExecReload=/usr/local/j4fsmb/bin/server -k graceful
+Type=notify
+Restart=always
+
+[Install]
+WantedBy=default.target
+RequiredBy=network.target

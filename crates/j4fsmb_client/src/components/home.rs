@@ -2,7 +2,7 @@
 
 use dioxus::prelude::*;
 
-use crate::Route;
+use crate::components::Route;
 
 #[component]
 pub fn Home() -> Element {
@@ -10,7 +10,7 @@ pub fn Home() -> Element {
 
     rsx! {
         Link {
-            to: Route::Blog {
+            to: Route::Folder {
                 id: count()
             },
             "Go to blog"
