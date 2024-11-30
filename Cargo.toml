@@ -13,6 +13,7 @@ edition = "2021"
 
 [workspace.dependencies]
 tokio = { version = "1.41.1", features = ["full"] }
+anyhow = "1.0.93"
 j4fsmb-parser = { path = "crates/j4fsmb_parser" }
 
 [profile.release]

@@ -92,6 +92,15 @@ pub struct NegotiateRequest {
     pub negotiate_context_list: Vec<NegotiateContext>,
 }
 
+pub const SMB2_GLOBAL_CAP_DFS:                u32 = 0x00000001;
+pub const SMB2_GLOBAL_CAP_LEASING:            u32 = 0x00000002;
+pub const SMB2_GLOBAL_CAP_LARGE_MTU:          u32 = 0x00000004;
+pub const SMB2_GLOBAL_CAP_MULTI_CHANNEL:      u32 = 0x00000008;
+pub const SMB2_GLOBAL_CAP_PERSISTENT_HANDLES: u32 = 0x00000010;
+pub const SMB2_GLOBAL_CAP_DIRECTORY_LEASING:  u32 = 0x00000020;
+pub const SMB2_GLOBAL_CAP_ENCRYPTION:         u32 = 0x00000040;
+pub const SMB2_GLOBAL_CAP_NOTIFICATIONS:      u32 = 0x00000080;
+
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
 pub struct NegotiateResponse {

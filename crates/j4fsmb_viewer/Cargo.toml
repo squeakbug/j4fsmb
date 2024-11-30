@@ -1,0 +1,19 @@
+[package]
+name = "j4fsmb-viewer"
+version = "0.1.0"
+authors = ["squeakbug <squeakbug73@outlook.com>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+j4fsmb-parser = { path = "../j4fsmb_parser" }
+
+dioxus = { version = "0.5", features = ["desktop", "router"] }
+tokio.workspace = true
+
+# Debug
+dioxus-logger = "0.5.1"
+dioxus-desktop = "0.5.6"
+serde = { version = "1.0.215", features = ["derive"] }
+serde_json = "1.0.133"

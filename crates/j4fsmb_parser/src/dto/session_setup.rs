@@ -1,11 +1,28 @@
-#[repr(C)]
-#[derive(Debug)]
+use deku::prelude::*;
+
+#[derive(Debug, PartialEq, DekuRead, DekuWrite)]
+#[deku(endian = "little")]
 pub struct SessionSetupRequest {
-    // Add fields specific to Session Setup Request
+    pub structure_size: u16,
+    pub flags: u8,
+    pub security_mode: u8,
+    pub capabilities: u32,
+    pub channel: u32,
+    pub security_buffer_offset: u16,
+    pub security_buffer_length: u16,
+    pub previous_session_id: u64,
+    #[deku(count = "security_buffer_length")]
+    pub buffer: Vec<u8>,
 }
 
-#[repr(C)]
-#[derive(Debug)]
+#[derive(Debug, PartialEq, DekuRead, DekuWrite)]
+#[deku(endian = "little")]
 pub struct SessionSetupResponse {
-    // Add fields specific to Session Setup Response
+    pub structure_size: u16,
+    pub session_flags: u16,
+    pub security_buffer_offset: u16,
+    pub security_buffer_length: u16,
+    pub previous_session_id: u64,
+    #[deku(count = "security_buffer_length")]
+    pub buffer: Vec<u8>,
 }

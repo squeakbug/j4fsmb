@@ -5,6 +5,13 @@ authors = ["squeakbug <squeakbug73@outlook.com>"]
 edition = "2021"
 
 [dependencies]
+j4fsmb-parser.workspace = true
+chrono = "0.4.38"
 tokio.workspace = true
 tracing = "0.1.40"
 tracing-subscriber = "0.3.18"
+rust-kbkdf = "1.1.0"
+toml = "0.8.19"
+dotenv = "0.15.0"
+serde = "1.0.215"
+anyhow.workspace = true

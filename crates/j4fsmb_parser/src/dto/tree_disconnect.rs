@@ -2,7 +2,7 @@ use deku::prelude::*;
 
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
-pub struct TreeConnectRequest {
+pub struct TreeDisconnectRequest {
     pub structure_size: u16,
     pub flags: u16,
     pub path_offset: u16,
@@ -13,7 +13,7 @@ pub struct TreeConnectRequest {
 
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
-pub struct TreeConnectResponse {
+pub struct TreeDisconnectResponse {
     pub structure_size: u16,
     pub share_type: u8,
     pub reserved: u8,
