@@ -4,15 +4,15 @@ use std::{
     io::Read,
 };
 
-use serde::Deserialize;
+use serde_derive::Deserialize;
 use toml;
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct Config {
     pub server: ServerConfig,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct ServerConfig {
     pub port: u16,
     pub addr: String,

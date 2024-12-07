@@ -4,7 +4,7 @@ use tokio::{
     self,
     net::{TcpListener, TcpStream},
 };
-use tracing::{error, info, warn};
+use tracing::warn;
 
 use crate::{
     config::ServerConfig,
@@ -45,7 +45,7 @@ impl Server {
         &self, 
         socket: TcpStream
     ) -> anyhow::Result<()> {
-        let conn = TransportConnection::from_socket(socket);
+        let _conn = TransportConnection::from_socket(socket);
         tokio::spawn(async move {
             
         });

@@ -7,5 +7,3 @@ edition = "2021"
 [dependencies]
 tokio.workspace = true
 deku = "0.18"
-cmac = "0.7.2"
-hmac = "0.12.1"
