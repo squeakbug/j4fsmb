@@ -1,5 +1,7 @@
 use deku::prelude::*;
 
+use crate::{Smb2Request, Smb2Response};
+
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
 pub struct QueryInfoRequest {
@@ -17,6 +19,8 @@ pub struct QueryInfoRequest {
     pub buffer: Vec<u8>,
 }
 
+impl Smb2Request for QueryInfoRequest { }
+
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
 pub struct QueryInfoResponse {
@@ -26,3 +30,5 @@ pub struct QueryInfoResponse {
     #[deku(count = "output_buffer_length")]
     pub buffer: Vec<u8>,
 }
+
+impl Smb2Response for QueryInfoResponse { }

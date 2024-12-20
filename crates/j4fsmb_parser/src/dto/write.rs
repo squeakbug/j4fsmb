@@ -1,5 +1,7 @@
 use deku::prelude::*;
 
+use crate::{Smb2Request, Smb2Response};
+
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
 pub struct WriteRequest {
@@ -16,6 +18,8 @@ pub struct WriteRequest {
     pub buffer: Vec<u8>,
 }
 
+impl Smb2Request for WriteRequest { }
+
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
 pub struct WriteResponse {
@@ -26,3 +30,5 @@ pub struct WriteResponse {
     pub write_channel_info_offset: u16,
     pub write_channel_info_length: u16,
 }
+
+impl Smb2Response for WriteResponse { }

@@ -1,5 +1,7 @@
 use deku::prelude::*;
 
+use crate::{Smb2Request, Smb2Response};
+
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
 pub struct TreeConnectRequest {
@@ -11,6 +13,8 @@ pub struct TreeConnectRequest {
     pub buffer: Vec<u8>,
 }
 
+impl Smb2Request for TreeConnectRequest { }
+
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
 pub struct TreeConnectResponse {
@@ -21,3 +25,5 @@ pub struct TreeConnectResponse {
     pub capabilities: u32,
     pub maximal_access: u32,
 }
+
+impl Smb2Response for TreeConnectResponse { }

@@ -1,5 +1,7 @@
 use deku::prelude::*;
 
+use crate::{Smb2Request, Smb2Response};
+
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
 pub struct ChangeNotifyRequest {
@@ -10,6 +12,8 @@ pub struct ChangeNotifyRequest {
     pub reserved: u32,
 }
 
+impl Smb2Request for ChangeNotifyRequest { }
+
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
 pub struct ChangeNotifyResponse {
@@ -19,3 +23,5 @@ pub struct ChangeNotifyResponse {
     #[deku(count = "output_buffer_length")]
     pub buffer: Vec<u8>,
 }
+
+impl Smb2Response for ChangeNotifyResponse { }

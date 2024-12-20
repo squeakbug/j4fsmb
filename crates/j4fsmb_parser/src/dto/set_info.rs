@@ -1,5 +1,7 @@
 use deku::prelude::*;
 
+use crate::{Smb2Request, Smb2Response};
+
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
 pub struct SetInfoRequest {
@@ -15,8 +17,12 @@ pub struct SetInfoRequest {
     pub buffer: Vec<u8>,
 }
 
+impl Smb2Request for SetInfoRequest { }
+
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
 pub struct SetInfoResponse {
     pub structure_size: u16,
 }
+
+impl Smb2Response for SetInfoResponse { }

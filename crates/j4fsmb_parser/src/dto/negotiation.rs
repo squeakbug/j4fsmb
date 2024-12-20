@@ -1,5 +1,7 @@
 use deku::prelude::*;
 
+use crate::{Smb2Request, Smb2Response};
+
 type Dialiect = u32;
 
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
@@ -92,6 +94,8 @@ pub struct NegotiateRequest {
     pub negotiate_context_list: Vec<NegotiateContext>,
 }
 
+impl Smb2Request for NegotiateRequest { }
+
 pub const SMB2_GLOBAL_CAP_DFS:                u32 = 0x00000001;
 pub const SMB2_GLOBAL_CAP_LEASING:            u32 = 0x00000002;
 pub const SMB2_GLOBAL_CAP_LARGE_MTU:          u32 = 0x00000004;
@@ -118,6 +122,8 @@ pub struct NegotiateResponse {
     pub dialect_index: u16,
     pub dialects: [u16; 1],
 }
+
+impl Smb2Response for NegotiateResponse { }
 
 pub fn smb2_dialect_string(d: u16) -> String {
     match d {

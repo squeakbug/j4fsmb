@@ -15,6 +15,7 @@ edition = "2021"
 tokio = { version = "1.41.1", features = ["full"] }
 anyhow = "1.0.93"
 j4fsmb-parser = { path = "crates/j4fsmb_parser" }
+j4fsmb-client = { path = "crates/j4fsmb_client" }
 
 [profile.release]
 lto = true

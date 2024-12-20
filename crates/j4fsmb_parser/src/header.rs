@@ -21,6 +21,39 @@ pub const SMB2_COMMAND_SET_INFO:                u16 = 0x0011;
 pub const SMB2_COMMAND_OPLOCK_BREAK:            u16 = 0x0012;
 pub const SMB2_COMMAND_SERVER_TO_CLIENT_NOTIFY: u16 = 0x0013;
 
+pub enum Command {
+    Negotiate,
+    SessionSetup,
+    SessionLogoff,
+    TreeConnect,
+    TreeDisconnect,
+    Create,
+    Close,
+    Flush,
+    Read,
+    Write,
+    Lock,
+    Ioctl,
+    Cancel,
+    Echo,
+    QueryDirectory,
+    ChangeNotify,
+    QueryInfo,
+    SetInfo,
+    OplockBreak,
+    ServerToClientNotify,
+}
+
+pub enum Flags {
+    ServerToRedir,
+    AsyncCommand,
+    RelatedOperations,
+    Signed,
+    PriorityMask,
+    DfsOperations,
+    ReplayOperation,
+}
+
 #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
 #[deku(endian = "little")]
 pub struct Smb2SyncHeader {
@@ -31,10 +64,53 @@ pub struct Smb2SyncHeader {
     pub command: u16,
     pub credit: u16,
     pub flags: u32,
-    pub next_command_offset: u16,
+    pub next_command: u16,
     pub message_id: u64,
     pub reserved: u16,
     pub tree_id: u32,
+    pub session_id: u64,
+    pub signature: u128,
+}
+
+impl Default for Smb2SyncHeader {
+    fn default() -> Self {
+        Smb2SyncHeader::new()
+    }
+}
+
+impl Smb2SyncHeader {
+    pub fn new() -> Self {
+        Smb2SyncHeader {
+            protocol_id: 0,
+            structure_size: 36,
+            credit_charge: 0,
+            status: 0,
+            command: 0,
+            credit: 0,
+            flags: 0,
+            next_command: 0,
+            message_id: 0,
+            reserved: 0,
+            tree_id: 0,
+            session_id: 0,
+            signature: 0,
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, DekuRead, DekuWrite)]
+#[deku(endian = "little")]
+pub struct Smb2AsyncHeader {
+    pub protocol_id: u32,
+    pub structure_size: u16,
+    pub credit_charge: u16,
+    pub status: u32,
+    pub command: u16,
+    pub credit: u16,
+    pub flags: u32,
+    pub next_command: u16,
+    pub message_id: u64,
+    pub async_id: u64,
     pub session_id: u64,
     pub signature: u128,
 }

@@ -45,9 +45,9 @@ impl Server {
         &self, 
         socket: TcpStream
     ) -> anyhow::Result<()> {
-        let _conn = TransportConnection::from_socket(socket);
+        let conn = TransportConnection::from_socket(socket);
         tokio::spawn(async move {
-            
+            let _ = conn.run().await;
         });
         Ok(())
     }

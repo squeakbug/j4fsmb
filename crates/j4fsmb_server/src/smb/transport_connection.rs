@@ -18,7 +18,7 @@ pub struct TransportConnection {
 }
 
 impl TransportConnection {
-    pub async fn from_socket(downstream: TcpStream) -> Self {
+    pub fn from_socket(downstream: TcpStream) -> Self {
         let (tx, _rx) = oneshot::channel();
         TransportConnection {
             client_socket: downstream,

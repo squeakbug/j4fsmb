@@ -1,17 +1,16 @@
 [package]
-name = "j4fsmb-client"
+name = "j4fsmb-tests"
 version = "0.0.1"
 authors = ["squeakbug <squeakbug73@outlook.com>"]
 edition = "2021"
 
 [dependencies]
 j4fsmb-parser.workspace = true
+j4fsmb-client.workspace = true
 chrono = "0.4.38"
 tokio.workspace = true
 tracing = "0.1.40"
 tracing-subscriber = "0.3.18"
 rust-kbkdf = "1.1.0"
+tryhard = "0.5.1"
 anyhow.workspace = true
-hickory-resolver = "0.24.1"
-url = "2.5.4"
-deku = "0.18"

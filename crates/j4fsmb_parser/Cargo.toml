@@ -7,3 +7,5 @@ edition = "2021"
 [dependencies]
 tokio.workspace = true
 deku = "0.18"
+anyhow.workspace = true
+async-trait = "0.1.83"
